@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Coad</title>
+
+<!-- Custom fonts for this template-->
+<link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+	type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+	rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<!-- Custom styles for this template-->
+<link href="/css/sb-admin-2.min.css" rel="stylesheet">
+
+<!-- Custom styles for this page -->
+<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+	rel="stylesheet">
+<link
+	href="https://cdn.datatables.net/1.10.20/css/dataTables.jqueryui.min.css"
+	rel="stylesheet">
+
+<script type="text/javascript">
+	function abreFormTipoSolicitacaoModal() {
+		$.ajax({
+
+			url : "/cadastraTipoSolicitacao",
+			success : function(data) {
+				$("#formTipoSolicitacaoModalHolder").html(data);
+				$('#formTipoSolicitacaoModal').modal({
+					backdrop : 'static'
+				});
+			}
+		});
+	}
+	function selected(value) {
+		var tipoOutros = document.getElementsByClassName('tipoOutros');
+		var tipoSolicitacao = document.getElementById('tipoSolicitacao').value;
+		if (tipoSolicitacao == 4) {
+			tipoOutros[0].style.display = 'block';
+		} else {
+			tipoOutros[0].style.display = 'none';
+		}
+	}
+</script>
+</head>
+<body id="page-top">
+
+	<!-- Page Wrapper -->
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<ul
+			class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+			id="accordionSidebar">
+
+			<!-- Sidebar - Brand -->
+			<a
+				class="sidebar-brand d-flex align-items-center justify-content-center mt-3 mb-3"
+				href="/inicio">
+				<div id="logo">
+					<img src="/img/logoCOAD.png" />
+				</div>
+			</a>
+
+			<!-- Divider -->
+			<hr class="sidebar-divider my-0">
+
+			<!-- Nav Item - Pages Collapse Menu -->
+			<li class="nav-item"><a class="nav-link collapsed" href="#"
+				data-toggle="collapse" data-target="#collapseTwo"
+				aria-expanded="true" aria-controls="collapseTwo"> <i
+					class="fas fa-fw fa-cog"></i> <span>Cadastros</span>
+			</a>
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item"
+							href="http://localhost:8080/cadastraCliente">Cliente</a><a
+							class="collapse-item"
+							href="http://localhost:8080/cadastraSolicitacao">Solicitação</a>
+					</div>
+				</div></li>
+
+			<!-- Divider -->
+			<hr class="sidebar-divider">
+
+			<!-- Nav Item - Pages Collapse Menu -->
+			<li class="nav-item"><a class="nav-link collapsed" href="#"
+				data-toggle="collapse" data-target="#collapsePages"
+				aria-expanded="true" aria-controls="collapsePages"> <i
+					class="fas fa-fw fa-table"></i> <span>Tabelas</span>
+			</a>
+				<div id="collapsePages" class="collapse"
+					aria-labelledby="headingPages" data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" href="http://localhost:8080/clientes">Clientes</a>
+						<a class="collapse-item"
+							href="http://localhost:8080/tipoSolicitacoes">Tipos de
+							Solicitações</a> <a class="collapse-item"
+							href="http://localhost:8080/solicitacoes">Solicitações</a>
+					</div>
+				</div></li>
+
+			<!-- Divider -->
+			<hr class="sidebar-divider d-none d-md-block">
+
+		</ul>
+		<!-- End of Sidebar -->
+
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
+
+			<!-- Main Content -->
+			<div id="content">
+
+				<!-- Topbar -->
+				<nav
+					class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+				</nav>
+				<!-- End of Topbar -->
+
+				<!-- Begin Page Content -->
+				<div class="container">
+
+					<!-- Page Heading -->
+					<div
+						class="d-sm-flex align-items-center justify-content-between mb-4">
+						<h1 class="h3 mb-0 text-gray-800">Cadastrar Solicitação</h1>
+						<a href="#"
+							th:onclick="'javascript:abreFormTipoSolicitacaoModal();'"
+							class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+							class="fa-sm text-white-50"></i>Cadastrar tipo de solicitação</a>
+					</div>
+
+					<!-- Content Row -->
+					<div class="row">
+
+						<div class="card-body col-md-6"
+							style='margin-left: auto; margin-right: auto;'>
+							<div class="card shadow mb-4 text-center">
+								<div class="container">
+									<form class="form-group" method="post"
+										th:object="${solicitacao}"
+										th:action="@{/formSalvaSolicitacao}">
+										<div class="form-row">
+											<div class="col">
+												<div class="form-row">
+													<div class="form-group col-md-12 mt-3">
+														<label for="inputTitulo">Título</label><input
+															class="form-control" id="inputTitulo"
+															placeholder="Digite um título" type="text" value=""
+															th:field="*{titulo}" required="required" />
+													</div>
+												</div>
+												<div class="form-row">
+													<div class="form-group col-md-6">
+														<label>Data da Solicitação</label><input type="date"
+															th:field="*{data}" name="data" class="form-control"
+															required="required" />
+													</div>
+													<div class="form-group col-md-6">
+														<label>Tipo de Solicitação</label> <select
+															onclick="selected(this.value)"
+															th:field="*{tipoSolicitacao}" id="tipoSolicitacao"
+															name="tipoSolicitacao" class="form-control">
+															<option value="">Selecione</option>
+															<option th:each="tipo : ${tipos}" th:value="${tipo.id}"
+																th:text="${tipo.descricao}"></option>
+														</select>
+													</div>
+												</div>
+												<div class="tipoOutros" style="display: none;">
+													<div class="form-row">
+														<div id="1" class="form-group col-md-6"
+															style='margin-left: auto; margin-right: auto;'>
+															<label for="inputTitulo">Outro Tipo de
+																Solicitação</label><input class="form-control" id=""
+																placeholder="Digite um tipo de solicitação" type="text"
+																value="" th:field="*{tipoOutros}" />
+														</div>
+													</div>
+												</div>
+												<div class="form-row">
+													<div class="form-group col-md-12">
+														<label>Descrição</label>
+														<textarea th:field="*{descricao}" name="descricao"
+															class="form-control" required="required" rows="7"
+															cols="6" style="resize: none;"></textarea>
+													</div>
+												</div>
+												<div class="form-row">
+													<div class="form-group col-md-6">
+														<label>Cliente</label> <select th:field="*{cliente}"
+															name="cliente" class="form-control">
+															<option value="">Selecione</option>
+															<option th:each="cliente : ${clientes}"
+																th:value="${cliente.id}" th:text="${cliente.nome}"></option>
+														</select>
+													</div>
+													<div class="form-group col-md-6">
+														<label>Status</label> <select th:field="*{status}"
+															name="status" class="form-control">
+															<option value="0">Selecione</option>
+															<option value="1">Atendido</option>
+															<option value="2">Aguardando</option>
+														</select>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="form-row">
+											<div class="form-group col-md-12">
+												<div hidden="true" id="sucess" class="alert alert-success"
+													role="alert">Cadastro salvo com sucesso!</div>
+												<button type="submit"
+													class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+													id="salvar">Salvar</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /.container-fluid -->
+
+			</div>
+			<!-- End of Main Content -->
+
+			<!-- Footer -->
+			<footer class="sticky-footer bg-white">
+				<div class="container my-auto">
+					<div class="copyright text-center my-auto">
+						<span>Copyright &copy; COAD 2019</span>
+					</div>
+				</div>
+			</footer>
+			<!-- End of Footer -->
+
+		</div>
+		<!-- End of Content Wrapper -->
+
+	</div>
+	<!-- End of Page Wrapper -->
+
+	<!-- Bootstrap core JavaScript-->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Core plugin JavaScript-->
+	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+	<!-- Custom scripts for all pages-->
+	<script src="js/sb-admin-2.min.js"></script>
+
+	<!-- modal -->
+	<div th:fragment="formTipoSolicitacao"
+		id="formTipoSolicitacaoModalHolder"></div>
+
+</body>
+</html>

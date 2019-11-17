@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Coad</title>
+
+<!-- Custom fonts for this template -->
+<link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+	type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+	rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<!-- Custom styles for this template -->
+<link href="/css/sb-admin-2.min.css" rel="stylesheet">
+
+<!-- Custom styles for this page -->
+<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+	rel="stylesheet">
+
+</head>
+<body id="page-top">
+
+	<!-- Page Wrapper -->
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<ul
+			class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+			id="accordionSidebar">
+
+			<!-- Sidebar - Brand -->
+			<a
+				class="sidebar-brand d-flex align-items-center justify-content-center mt-3 mb-3"
+				href="/inicio">
+				<div id="logo">
+					<img src="/img/logoCOAD.png" />
+				</div>
+			</a>
+
+			<!-- Divider -->
+			<hr class="sidebar-divider my-0">
+
+			<!-- Nav Item - Pages Collapse Menu -->
+			<li class="nav-item"><a class="nav-link collapsed" href="#"
+				data-toggle="collapse" data-target="#collapseTwo"
+				aria-expanded="true" aria-controls="collapseTwo"> <i
+					class="fas fa-fw fa-cog"></i> <span>Cadastros</span>
+			</a>
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item"
+							href="http://localhost:8080/cadastraCliente">Cliente</a><a
+							class="collapse-item"
+							href="http://localhost:8080/cadastraSolicitacao">Solicitação</a>
+					</div>
+				</div></li>
+
+			<!-- Divider -->
+			<hr class="sidebar-divider">
+
+			<!-- Nav Item - Pages Collapse Menu -->
+			<li class="nav-item"><a class="nav-link collapsed" href="#"
+				data-toggle="collapse" data-target="#collapsePages"
+				aria-expanded="true" aria-controls="collapsePages"> <i
+					class="fas fa-fw fa-table"></i> <span>Tabelas</span>
+			</a>
+				<div id="collapsePages" class="collapse"
+					aria-labelledby="headingPages" data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" href="http://localhost:8080/clientes">Clientes</a>
+						<a class="collapse-item"
+							href="http://localhost:8080/tipoSolicitacoes">Tipos de
+							Solicitações</a> <a class="collapse-item"
+							href="http://localhost:8080/solicitacoes">Solicitações</a>
+					</div>
+				</div></li>
+
+			<!-- Divider -->
+			<hr class="sidebar-divider d-none d-md-block">
+
+		</ul>
+		<!-- End of Sidebar -->
+
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
+
+			<!-- Main Content -->
+			<div id="content">
+
+				<!-- Topbar -->
+				<nav
+					class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+				</nav>
+				<!-- End of Topbar -->
+
+				<!-- Begin Page Content -->
+				<div class="container">
+
+					<div
+						class="d-sm-flex align-items-center justify-content-between mb-4" style='margin-left: auto; margin-right: auto;'>
+						<h1 class="h3 mb-0 text-gray-800">Cadastrar Cliente</h1>
+					</div>
+
+					<div class="row">
+
+						<div class="card-body col-md-4" style='margin-left: auto; margin-right: auto;'>
+							<div class="card shadow mb-4 text-center">
+								<div class="container">
+									<form class="form-group" method="post" th:object="${cliente}"
+										th:action="@{/formSalvaCliente}">
+										<div class="form-row">
+											<div class="col">
+												<div class="form-group col-md-12 mt-3">
+													<label for="inputNome">Nome</label><input
+														class="form-control" id="inputNome"
+														placeholder="Digite seu nome" type="text" value=""
+														th:field="*{nome}" required="required" />
+												</div>
+												<div class="form-group col-md-12">
+													<label for="inputSobrenome">E-mail</label><input
+														class="form-control" id="inputSobrenome"
+														placeholder="Digite seu e-mail" type="text" value=""
+														th:field="*{email}" required="required" />
+												</div>
+												<div class="form-group col-md-12">
+													<label for="inputTelefone">Telefone Residencial</label> <input
+														class="form-control" id="inputTelefone"
+														placeholder="(xx) xxxx-xxxx" type="text" value=""
+														th:field="*{foneResidencial}" required="required"
+														maxlength="11">
+												</div>
+												<div class="form-group col-md-12">
+													<label for="inputTelefone">Telefone Comercial</label> <input
+														class="form-control" id="inputTelefone"
+														placeholder="(xx) xxxx-xxxx" type="text" value=""
+														th:field="*{foneComercial}" maxlength="11">
+												</div>
+												<div class="form-group col-md-12">
+													<label for="inputTelefone">Telefone Celular</label> <input
+														class="form-control" id="inputTelefone"
+														placeholder="(xx) xxxxx-xxxx" type="text" value=""
+														th:field="*{foneCelular}" maxlength="11">
+												</div>
+											</div>
+										</div>
+										<div class="form-row">
+											<div class="form-group col-md-12">
+												<div hidden="true" id="sucess" class="alert alert-success"
+													role="alert">Cadastro salvo com sucesso!</div>
+												<button type="submit"
+													class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+													id="salvar">Salvar</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- container-fluid -->
+
+			</div>
+			<!-- End of Main Content -->
+
+			<!-- Footer -->
+			<footer class="sticky-footer bg-white">
+				<div class="container my-auto">
+					<div class="copyright text-center my-auto">
+						<span>Copyright &copy; COAD 2019</span>
+					</div>
+				</div>
+			</footer>
+			<!-- End of Footer -->
+
+		</div>
+		<!-- End of Content Wrapper -->
+
+	</div>
+	<!-- End of Page Wrapper -->
+
+	<!-- Bootstrap core JavaScript-->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Core plugin JavaScript-->
+	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+	<!-- Custom scripts for all pages-->
+	<script src="js/sb-admin-2.min.js"></script>
+</body>
+</html>

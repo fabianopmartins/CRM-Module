@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+</head>
+<div id="visualizaClienteModal" class="modal fade" role="dialog"
+	th:fragment="visualizaCliente" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header" style="background: #093159;">
+				<h4 class="modal-title">
+					<span style="font-weight: bold; color: white;">Dados do
+						Cliente</span>
+				</h4>
+			</div>
+			<div class="modal-body">
+				<form method="post" th:object=${cliente}>
+					<input type="text" th:field="*{id}" name="id" />
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+			</div>
+		</div>
+	</div>
+</div>
+</html>

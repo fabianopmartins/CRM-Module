@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="utf-8">
+</head>
+<div id="formTipoSolicitacaoModal" class="modal fade" role="dialog"
+	th:fragment="formTipoSolicitacao" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header" style="background: #093159;">
+				<h4 class="modal-title">
+					<span style="font-weight: bold; color: white;">Cadastrar Tipo de
+						Solicição</span>
+				</h4>
+			</div>
+
+			<form th:action="@{/salvaTipoSolicitacao}" method="post"
+				th:object="${tipoSolicitacao}" id="form-tipoSolicitacao-form">
+
+				<!-- Input values -->
+				<div class="modal-body container col-md-8">
+					<div class="form-group">
+						<label>Descrição</label><input type="text"
+							th:field="*{descricao}" name="descricao" class="form-control"
+							required="required" />
+					</div>
+				</div>
+
+				<!-- buttons -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+					<button type="submit" class="btn btn-primary">Salvar</button>
+				</div>
+
+			</form>
+		</div>
+	</div>
+</div>
+</html>
