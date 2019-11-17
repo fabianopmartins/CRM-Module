@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<style type="text/css">
+label {
+	font-weight: bold;
+	text-color: gray;
+}
+</style>
+</head>
+<div id="visualizaSolicitacaoModal" class="modal fade" role="dialog"
+	th:fragment="visualizaSolicitacao" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header" style="background: #093159;">
+				<h4 class="modal-title">
+					<span style="font-weight: bold; color: white;">Dados da
+						Solicitação</span>
+				</h4>
+			</div>
+			<div class="modal-body">
+				<div class="container">
+					<div class="form-row">
+						<div class="col">
+							<form method="post" th:object=${solicitacao}>
+								<div class="form-group md-col-12 mt-3">
+									<div class="form-row">
+										<div class="col">
+											<div class="form-row">
+												<label class="md-col-3" for="inputNome">ID</label><input
+													class="form-control-plaintext md-col-6" type="text"
+													readonly="readonly" th:field="*{id}" name="id" />
+												<hr>
+												<label class="md-col-3" for="inputTitulo">Título</label><input
+													class="form-control-plaintext md-col-6" type="text"
+													readonly="readonly" th:field="*{titulo}" name="titulo" />
+											</div>
+											<div class="row md-col-3">
+												<label class="md-col-6" for="inputData">Data da
+													Solicitação</label> <input class="form-control-plaintext md-col-6"
+													type="text" readonly="readonly" th:field="*{data}"
+													name="data" />
+											</div>
+											<hr>
+											<label class="md-col-3" for="inputTitulo">Descrição</label>
+											<textarea class="form-control-plaintext md-col-6" type="text"
+												readonly="readonly" th:field="*{descricao}" name="descricao"
+												rows="5" style="resize: none"></textarea>
+										</div>
+										<hr>
+
+										<hr>
+										<div class="row md-col-12">
+											<label class="md-col-6" for="inputData">Cliente</label> <input
+												class="form-control-plaintext md-col-6" type="text"
+												readonly="readonly" th:field="*{cliente.nome}"
+												name="clienteNome" />
+										</div>
+										<hr>
+										<div class="row md-col-12">
+											<label class="md-col-6" for="inputData">Tipo de
+												Solicitação</label> <input class="form-control-plaintext md-col-6"
+												type="text" readonly="readonly"
+												th:field="*{tipoSolicitacao.descricao}"
+												name="tipoSolicitacao" />
+										</div>
+										<hr>
+										<div class="row md-col-12">
+											<label class="md-col-6" for="inputData">Status</label> <input
+												class="form-control-plaintext md-col-6" type="text"
+												readonly="readonly" th:field="*{tipoSolicitacao.descricao}"
+												name="data" />
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+			</div>
+		</div>
+	</div>
+</div>
+</html>

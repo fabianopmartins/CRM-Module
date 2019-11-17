@@ -69,9 +69,9 @@ public class SolicitacaoController {
 		return formCadastraSolicitacao();
 	}
 
-	@RequestMapping(value = "/deletaSolicitacao/{id}", method = RequestMethod.GET)
-	public ModelAndView deletaSolicitacao(@PathVariable("id") Integer id) throws ObjectNotFoundException {
-		ModelAndView mv = new ModelAndView("solicitacao/deletaSolicitacaoModal");
+	@RequestMapping(value = "/visualizaSolicitacao/{id}", method = RequestMethod.GET)
+	public ModelAndView visualizaSolicitacao(@PathVariable("id") Integer id) throws ObjectNotFoundException {
+		ModelAndView mv = new ModelAndView("solicitacao/visualizaSolicitacaoModal");
 		mv.addObject("solicitacao", ss.search(id));
 		return mv;
 	}

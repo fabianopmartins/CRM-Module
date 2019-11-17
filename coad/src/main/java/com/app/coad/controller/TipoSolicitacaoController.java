@@ -54,12 +54,4 @@ public class TipoSolicitacaoController {
 		tss.save(tipoSolicitacao);
 		return formCadastraTipoSolicitacao();
 	}
-
-	@RequestMapping(value = "/deletaTipoSolicitacao/{id}", method = RequestMethod.GET)
-	public ModelAndView deletaTipoSolicitacao(@PathVariable("id") Integer id) throws ObjectNotFoundException {
-		ModelAndView mv = new ModelAndView("tipoSolicitacao/deletaTipoSolicitacaoModal");
-		mv.addObject("tipoSolicitacao", tss.search(id));
-		return mv;
-	}
-
 }

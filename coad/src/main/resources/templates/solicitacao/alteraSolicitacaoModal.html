@@ -3,18 +3,6 @@
 <head>
 <meta charset="utf-8">
 
-<script type="text/javascript">
-	function selected(value) {
-		var tipoOutros = document.getElementsByClassName('tipoOutros');
-		var tipoSolicitacao = document.getElementById('tipoSolicitacao').value;
-		if (tipoSolicitacao == 4) {
-			tipoOutros[0].style.display = 'block';
-		} else {
-			tipoOutros[0].style.display = 'none';
-		}
-	}
-</script>
-
 </head>
 <div id="alteraSolicitacaoModal" class="modal fade" role="dialog"
 	th:fragment="alteraSolicitacao" tabindex="-1">
@@ -29,7 +17,6 @@
 
 			<form th:action="@{/alteraSolicitacao}" method="post"
 				th:object="${solicitacao}" id="altera-solicitacao-form">
-
 				<!-- Input values -->
 				<div class="modal-body container col-md-8">
 					<div class="form-group">
@@ -56,22 +43,17 @@
 						</select>
 					</div>
 					<div class="form-group">
-						<label>Tipo de Solicitação</label> <select onclick="selected(this.value)"
+						<label>Tipo de Solicitação</label> <select 
 							th:field="*{tipoSolicitacao}" name="tipoSolicitacao"
 							class="form-control">
 							<option value="">Selecione</option>
 							<option th:each="tipo : ${tipos}" th:value="${tipo.id}"
 								th:text="${tipo.descricao}"></option>
 						</select>
-					</div>
-					<div class="form-group tipoOutros" style="display: none;">
-						<label>Outro Tipo de Solicitação</label> <input
-							th:field="*{tipoOutros}" name="tipoOutros"
-							class="form-control">		
-					</div>
+					</div>					
 					<div class="form-row">
 						<div class="form-group col-md-7">
-							<label>Data da Solicitação</label><input type="date"
+							<label>Data da Solicitação</label><input type="text"
 								th:field="*{data}" name="data" class="form-control"
 								required="required" />
 						</div>

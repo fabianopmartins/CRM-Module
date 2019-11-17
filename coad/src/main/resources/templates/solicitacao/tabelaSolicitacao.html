@@ -44,13 +44,13 @@
 		});
 	}
 
-	function abreDeletaSolicitacaoModal(id) {
+	function abreVisualizaSolicitacaoModal(id) {
 		$.ajax({
 
-			url : "/deletaSolicitacao/" + id,
+			url : "/visualizaSolicitacao/" + id,
 			success : function(data) {
-				$("#deletaSolicitacaoModalHolder").html(data);
-				$('#deletaSolicitacaoModal').modal({
+				$("#visualizaSolicitacaoModalHolder").html(data);
+				$('#visualizaSolicitacaoModal').modal({
 					backdrop : 'static'
 				});
 			}
@@ -161,7 +161,7 @@
 											<th class="align-middle">Status</th>
 											<th class="align-middle">Prioridade</th>
 											<th class="align-middle">Editar</th>
-											<th class="align-middle">Deletar</th>
+											<th class="align-middle">Visualizar</th>
 										</tr>
 									</thead>
 									<tfoot>
@@ -174,7 +174,7 @@
 											<th class="align-middle">Status</th>
 											<th class="align-middle">Prioridade</th>
 											<th class="align-middle">Editar</th>
-											<th class="align-middle">Deletar</th>
+											<th class="align-middle">Visualizar</th>
 										</tr>
 									</tfoot>
 									<tbody>
@@ -184,24 +184,23 @@
 											<td class="align-middle"><span
 												th:text="${solicitacao.titulo}"></span></td>
 											<td class="align-middle"><span
-												th:text="${#dates.format(solicitacao.data, 'dd/MM/yy')}"></span></td>
+												th:text="${#dates.format(solicitacao.data, 'dd/MM/yyyy')}"></span></td>
 											<td class="align-middle"><span
 												th:text="${solicitacao.cliente.nome}"></span></td>
 											<td class="align-middle"><span
-												th:if="${solicitacao.tipoSolicitacao.id != 4}"><span
-													th:text="${solicitacao.tipoSolicitacao.descricao}"></span></span><span
+												th:text="${solicitacao.tipoSolicitacao.descricao}"></span></span><span
 												th:unless="${solicitacao.tipoSolicitacao.id != 4}"><span
 													th:text="${solicitacao.tipoOutros}"></span></span></td>
 											<td class="align-middle"><span
 												th:if="${solicitacao.status == 1}">Atendida</span><span
 												th:unless="${solicitacao.status == 1}">Aguardando</span></td>
 											<td class="align-middle"><span
-												th:if="${#dates.format(solicitacao.data, 'dd/MM/yy').equals(solicitacao.dataBaixa())}" style='color: LimeGreen;'>Baixa</span>
-												<span
-												th:if="${#dates.format(solicitacao.data, 'dd/MM/yy') < solicitacao.dataBaixa() && #dates.format(solicitacao.data, 'dd/MM/yy') >= solicitacao.dataAlta()}" style='color: orange;'>Média</span>
-												<span
-												th:if="${#dates.format(solicitacao.data, 'dd/MM/yy') < solicitacao.dataAlta()}" style='color: red;'>Alta</span>
-											</td>
+												th:if="${#dates.format(solicitacao.data, 'dd/MM/yy').equals(solicitacao.dataBaixa())}"
+												style='color: LimeGreen;'>Baixa</span> <span
+												th:if="${#dates.format(solicitacao.data, 'dd/MM/yy') < solicitacao.dataBaixa() && #dates.format(solicitacao.data, 'dd/MM/yy') >= solicitacao.dataAlta()}"
+												style='color: orange;'>Média</span> <span
+												th:if="${#dates.format(solicitacao.data, 'dd/MM/yy') < solicitacao.dataAlta()}"
+												style='color: red;'>Alta</span></td>
 											<td class="align-middle"><a
 												class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
 												href="#"
@@ -211,7 +210,7 @@
 											<td class="align-middle"><a
 												class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
 												href="#"
-												th:onclick="'javascript:abreDeletaSolicitacaoModal(\''+ ${solicitacao.id} + '\');'">
+												th:onclick="'javascript:abreVisualizaSolicitacaoModal(\''+ ${solicitacao.id} + '\');'">
 													<i class="fas fa-eye"></i>
 											</a></td>
 										</tr>
@@ -264,7 +263,8 @@
 
 	<!-- modal -->
 	<div th:fragment="alteraSolicitacao" id="alteraSolicitacaoModalHolder"></div>
-	<div th:fragment="deletaSolicitacao" id="deletaSolicitacaoModalHolder"></div>
+	<div th:fragment="visualizaSolicitacao"
+		id="visualizaSolicitacaoModalHolder"></div>
 
 </body>
 </html>

@@ -29,7 +29,12 @@
 <link
 	href="https://cdn.datatables.net/1.10.20/css/dataTables.jqueryui.min.css"
 	rel="stylesheet">
-
+<style type="text/css">
+label {
+	font-weight: bold;
+	text-color: gray;
+}
+</style>
 <script type="text/javascript">
 	function abreFormTipoSolicitacaoModal() {
 		$.ajax({
@@ -42,15 +47,6 @@
 				});
 			}
 		});
-	}
-	function selected(value) {
-		var tipoOutros = document.getElementsByClassName('tipoOutros');
-		var tipoSolicitacao = document.getElementById('tipoSolicitacao').value;
-		if (tipoSolicitacao == 4) {
-			tipoOutros[0].style.display = 'block';
-		} else {
-			tipoOutros[0].style.display = 'none';
-		}
 	}
 </script>
 </head>
@@ -171,24 +167,12 @@
 													</div>
 													<div class="form-group col-md-6">
 														<label>Tipo de Solicitação</label> <select
-															onclick="selected(this.value)"
 															th:field="*{tipoSolicitacao}" id="tipoSolicitacao"
 															name="tipoSolicitacao" class="form-control">
 															<option value="">Selecione</option>
 															<option th:each="tipo : ${tipos}" th:value="${tipo.id}"
 																th:text="${tipo.descricao}"></option>
 														</select>
-													</div>
-												</div>
-												<div class="tipoOutros" style="display: none;">
-													<div class="form-row">
-														<div id="1" class="form-group col-md-6"
-															style='margin-left: auto; margin-right: auto;'>
-															<label for="inputTitulo">Outro Tipo de
-																Solicitação</label><input class="form-control" id=""
-																placeholder="Digite um tipo de solicitação" type="text"
-																value="" th:field="*{tipoOutros}" />
-														</div>
 													</div>
 												</div>
 												<div class="form-row">
@@ -199,23 +183,24 @@
 															cols="6" style="resize: none;"></textarea>
 													</div>
 												</div>
-												<div class="form-row">
-													<div class="form-group col-md-6">
-														<label>Cliente</label> <select th:field="*{cliente}"
-															name="cliente" class="form-control">
-															<option value="">Selecione</option>
-															<option th:each="cliente : ${clientes}"
-																th:value="${cliente.id}" th:text="${cliente.nome}"></option>
-														</select>
+												<div class="tipoOutros">
+													<div class="form-row">
+														<div id="1" class="form-group col-md-6"
+															style='margin-left: auto; margin-right: auto;'>
+															<label>Cliente</label> <select th:field="*{cliente}"
+																name="cliente" class="form-control">
+																<option value="">Selecione</option>
+																<option th:each="cliente : ${clientes}"
+																	th:value="${cliente.id}" th:text="${cliente.nome}"></option>
+															</select>
+														</div>
 													</div>
-													<div class="form-group col-md-6">
-														<label>Status</label> <select th:field="*{status}"
-															name="status" class="form-control">
-															<option value="0">Selecione</option>
-															<option value="1">Atendido</option>
-															<option value="2">Aguardando</option>
-														</select>
-													</div>
+												</div>
+												<div style="display: none" class="form-group col-md-6">
+													<label>Status</label> <select th:field="*{status}"
+														name="status" class="form-control">
+														<option value="2"></option>
+													</select>
 												</div>
 											</div>
 										</div>

@@ -56,7 +56,7 @@ public class ClienteController {
 	}
 
 	@RequestMapping(value = "/visualizaCliente/{id}", method = RequestMethod.GET)
-	public ModelAndView deletaCliente(@PathVariable("id") Integer id) throws ObjectNotFoundException {
+	public ModelAndView visualizaCliente(@PathVariable("id") Integer id) throws ObjectNotFoundException {
 		ModelAndView mv = new ModelAndView("cliente/visualizaClienteModal");
 		mv.addObject("cliente", cs.search(id));
 		return mv;
