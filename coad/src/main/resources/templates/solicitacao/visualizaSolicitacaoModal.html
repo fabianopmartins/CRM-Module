@@ -21,62 +21,54 @@ label {
 			</div>
 			<div class="modal-body">
 				<div class="container">
-					<div class="form-row">
-						<div class="col">
-							<form method="post" th:object=${solicitacao}>
-								<div class="form-group md-col-12 mt-3">
-									<div class="form-row">
-										<div class="col">
-											<div class="form-row">
-												<label class="md-col-3" for="inputNome">ID</label><input
-													class="form-control-plaintext md-col-3" type="text"
-													readonly="readonly" th:field="*{id}" name="id" />
-												<hr>
-												<label class="md-col-3" for="inputTitulo">Título</label><input
-													class="form-control-plaintext md-col-3" type="text"
-													readonly="readonly" th:field="*{titulo}" name="titulo" />
-											</div>
-											<div class="row md-col-3">
-												<label class="md-col-6" for="inputData">Data da
-													Solicitação</label> <input class="form-control-plaintext md-col-3"
-													type="text" readonly="readonly" th:field="*{data}"
-													name="data" />
-											</div>
-											<hr>
-											<label class="md-col-3" for="inputTitulo">Descrição</label>
-											<textarea class="form-control-plaintext md-col-6" type="text"
-												readonly="readonly" th:field="*{descricao}" name="descricao"
-												rows="5" style="resize: none"></textarea>
-										</div>
-										<hr>
-
-										<hr>
-										<div class="row md-col-12">
-											<label class="md-col-6" for="inputData">Cliente</label> <input
-												class="form-control-plaintext md-col-6" type="text"
-												readonly="readonly" th:field="*{cliente.nome}"
-												name="clienteNome" />
-										</div>
-										<hr>
-										<div class="row md-col-12">
-											<label class="md-col-6" for="inputData">Tipo de
-												Solicitação</label> <input class="form-control-plaintext md-col-6"
-												type="text" readonly="readonly"
-												th:field="*{tipoSolicitacao.descricao}"
-												name="tipoSolicitacao" />
-										</div>
-										<hr>
-										<div class="row md-col-12">
-											<label class="md-col-6" for="inputStatus">Status</label> <input
-												class="form-control-plaintext md-col-6" type="text"
-												readonly="readonly" th:field="*{status}"
-												name="data" />
-										</div>
+					<form method="post" th:object=${solicitacao}>
+						<div class="form-row">
+							<div class="col">
+								<div class="form-row">
+									<div class="form-group col-md-3 mt-3 ml-5">
+										<label for="inputId">ID</label><input
+											class="form-control-plaintext md-col-3" type="text"
+											readonly="readonly" th:field="*{id}" name="id" />
 									</div>
 								</div>
-							</form>
+								<div class="form-row">
+									<div class="form-group col-md-6 mt-3 ml-5">
+										<label for="inputTitulo">Título</label><input
+											class="form-control-plaintext md-col-3" type="text"
+											readonly="readonly" th:field="*{titulo}" name="titulo" />
+									</div>
+									<div class="form-group col-md-4 mt-3">
+										<label for="inputData">Data da Solicitação</label><input
+											class="form-control-plaintext md-col-3" type="text"
+											readonly="readonly" th:field="*{data}" name="data" />
+									</div>
+								</div>
+								<hr>
+								<div class="form-row">
+									<div class="form-group col-md-5 mt-3 ml-5">
+										<label for="inputCliente">Cliente</label> <input
+											class="form-control-plaintext md-col-6" type="text"
+											readonly="readonly" th:field="*{cliente.nome}"
+											name="clienteNome" />
+									</div>
+									<div class="form-group col-md-5 mt-3">
+										<label for="inputTipo">Tipo de Solicitação</label> <input
+											class="form-control-plaintext md-col-6" type="text"
+											readonly="readonly" th:field="*{tipoSolicitacao.descricao}"
+											name="tipoSolicitacao" />
+									</div>
+								</div>
+								<hr>
+								<div class="form-group col-md-12 mt-3">
+									<label for="iputDescricao">Descrição</label>
+									<textarea class="form-control-plaintext md-col-6" type="text"
+										readonly="readonly" th:field="*{descricao}" name="descricao"
+										rows="5" style="resize: none"></textarea>
+								</div>
+								<hr>
+							</div>
 						</div>
-					</div>
+					</form>
 				</div>
 			</div>
 			<div class="modal-footer">
