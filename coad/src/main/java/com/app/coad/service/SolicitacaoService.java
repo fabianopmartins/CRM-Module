@@ -38,7 +38,6 @@ public class SolicitacaoService {
 		solicitacaoAntigo.setTitulo(solicitacao.getTitulo());
 		solicitacaoAntigo.setDescricao(solicitacao.getDescricao());
 		solicitacaoAntigo.setData(solicitacao.getData());
-		solicitacaoAntigo.setTipoOutros(solicitacao.getTipoOutros());
 		solicitacaoAntigo.setTipoSolicitacao(solicitacao.getTipoSolicitacao());
 		solicitacaoAntigo.setCliente(solicitacao.getCliente());
 		solicitacaoAntigo.setTipoSolicitacao(solicitacao.getTipoSolicitacao());

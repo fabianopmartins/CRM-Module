@@ -38,8 +38,6 @@ public class Solicitacao implements Serializable {
 	@DateTimeFormat(pattern = "yy-MM-dd")
 	@Column(name = "data", length = 10, nullable = false)
 	private Date data;
-	@Column(name = "tipoOutros", length = 50, nullable = false)
-	private String tipoOutros;
 	@Column(name = "status", length = 1, nullable = false)
 	private int status;
 	@OneToOne(cascade = CascadeType.REMOVE)
@@ -83,14 +81,6 @@ public class Solicitacao implements Serializable {
 
 	public void setData(Date data) {
 		this.data = data;
-	}
-
-	public String getTipoOutros() {
-		return tipoOutros;
-	}
-
-	public void setTipoOutros(String tipoOutros) {
-		this.tipoOutros = tipoOutros;
 	}
 
 	public int getStatus() {
