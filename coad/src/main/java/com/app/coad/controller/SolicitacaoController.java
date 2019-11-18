@@ -69,7 +69,7 @@ public class SolicitacaoController {
 	@RequestMapping(value = "/formSalvaSolicitacao", method = RequestMethod.POST)
 	public String formSalvaSolicitacao(@Valid Solicitacao solicitacao, RedirectAttributes redirectAttributes) {
 		ss.save(solicitacao);
-		redirectAttributes.addFlashAttribute("msg_resultado", "Cliente salvo com sucesso!");
+		redirectAttributes.addFlashAttribute("msg_resultado", "Solicitação salva com sucesso!");
 		return "redirect:/cadastraSolicitacao";
 	}
 
