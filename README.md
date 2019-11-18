@@ -4,6 +4,13 @@ Tecnologias e Ferramentas utilizadas no desenvolvimento do módulo - Ferramentas
 Spring Tool Suite-4(versão 4.4.0), MYSQL Server(versão 8.0), MySQL Workbench(versão 8.0 CE) - 
 Tecnologias: Java, Spring Boot, Thymeleaf, Bootstrap, HTML5, CSS3, JavaScript, Jquery, Ajax , MYSQL.
 
+Ferramentas necessárias para a configuração do ambiente:
+
+- Java(versão JDK1.8)
+- Spring Tool Suite 4 (versão 4.4.0)
+- MYSQL Server (versão 8.0)
+- Link do repositório github para importação do código fonte do projeto (https://github.com/fbi305/COAD)
+
 É necessário a criação de um usuário coad e uma senha coadcoad para acesso ao banco de dados.
 
 Foi criado um scripit de criação e inserção do banco de dados COAD.
