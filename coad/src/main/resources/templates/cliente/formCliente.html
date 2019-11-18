@@ -33,6 +33,11 @@ label {
 	text-color: gray;
 }
 </style>
+<script type="text/javascript">
+	function limparMensagem() {
+		document.getElementById("success").style.display = 'none';
+	}
+</script>
 </head>
 <body id="page-top">
 
@@ -127,6 +132,10 @@ label {
 								<div class="container">
 									<form class="form-group" method="post" th:object="${cliente}"
 										th:action="@{/formSalvaCliente}">
+										<div id="success" class="mdl-list__item mt-2 alert alert-success" th:if="${msg_resultado}">
+											<p id="p-mensagem-sucesso" class="sucesso-msg"
+												th:text="${msg_resultado}">...</p>
+										</div>
 										<div class="form-row">
 											<div class="col">
 												<div class="form-row">
@@ -134,7 +143,7 @@ label {
 														<label for="inputNome">Nome</label><input
 															class="form-control" id="inputNome"
 															placeholder="Digite seu nome" type="text" value=""
-															th:field="*{nome}" required="required" />
+															th:field="*{nome}" required="required" onfocus="limparMensagem()" />
 													</div>
 													<div class="form-group col-md-6 mt-3">
 														<label for="inputSobrenome">E-mail</label><input

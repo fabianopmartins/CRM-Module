@@ -48,6 +48,9 @@ label {
 			}
 		});
 	}
+	function limparMensagem() {
+		document.getElementById("success").style.display = 'none';
+	}
 </script>
 </head>
 <body id="page-top">
@@ -148,23 +151,23 @@ label {
 									<form class="form-group" method="post"
 										th:object="${solicitacao}"
 										th:action="@{/formSalvaSolicitacao}">
+										<div id="success"
+											class="mdl-list__item mt-2 alert alert-success"
+											th:if="${msg_resultado}">
+											<p id="p-mensagem-sucesso" class="sucesso-msg"
+												th:text="${msg_resultado}">...</p>
+										</div>
 										<div class="form-row">
 											<div class="col">
 												<div class="form-row">
-													<div class="form-group col-md-7 mt-3">
-														<label for="inputTitulo">Título</label><input
-															class="form-control" id="inputTitulo"
-															placeholder="Digite um título" type="text" value=""
-															th:field="*{titulo}" required="required" />
+													<div id="1" class="form-group col-md-4 mt-3 ml-5">
+														<label>Cliente</label> <select th:field="*{cliente}"
+															name="cliente" class="form-control" onfocus="limparMensagem()" >
+															<option value="">Selecione</option>
+															<option th:each="cliente : ${clientes}"
+																th:value="${cliente.id}" th:text="${cliente.nome}"></option>
+														</select>
 													</div>
-													<div class="form-group col-md-5 mt-3">
-														<label>Data da Solicitação</label><input type="date"
-															th:field="*{data}" name="data" class="form-control"
-															required="required" />
-													</div>
-												</div>
-												<hr>
-												<div class="form-row">
 													<div class="form-group col-md-4 mt-3 ml-5">
 														<label>Tipo de Solicitação</label> <select
 															th:field="*{tipoSolicitacao}" id="tipoSolicitacao"
@@ -174,13 +177,19 @@ label {
 																th:text="${tipo.descricao}"></option>
 														</select>
 													</div>
-													<div id="1" class="form-group col-md-4 mt-3 ml-5">
-														<label>Cliente</label> <select th:field="*{cliente}"
-															name="cliente" class="form-control">
-															<option value="">Selecione</option>
-															<option th:each="cliente : ${clientes}"
-																th:value="${cliente.id}" th:text="${cliente.nome}"></option>
-														</select>
+												</div>
+												<hr>
+												<div class="form-row">
+													<div class="form-group col-md-9 mt-3 ml-5">
+														<label for="inputTitulo">Título</label><input
+															class="form-control" id="inputTitulo"
+															placeholder="Digite um título" type="text" value=""
+															th:field="*{titulo}" required="required" />
+													</div>
+													<div style="display: none" class="form-group col-md-5 mt-3">
+														<label>Data da Solicitação</label><input type="hidden"
+															th:value="*{#dates.format(#dates.createNow(), 'yyyy-MM-dd')}"
+															name="data" class="form-control" required="required" />
 													</div>
 												</div>
 												<hr>

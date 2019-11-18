@@ -1,13 +1,18 @@
 package com.app.coad.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import com.app.coad.entity.Cliente;
 import com.app.coad.service.ClienteService;
+
 import javassist.tools.rmi.ObjectNotFoundException;
 
 @Controller
@@ -50,9 +55,10 @@ public class ClienteController {
 	}
 	
 	@RequestMapping(value = "/formSalvaCliente", method = RequestMethod.POST)
-	public ModelAndView formSalvaCliente(Cliente cliente) {
+	public String formSalvaCliente(@Valid Cliente cliente, RedirectAttributes redirectAttributes) {
 		cs.save(cliente);
-		return formCadastraCliente();
+		redirectAttributes.addFlashAttribute("msg_resultado", "Cliente salvo com sucesso!");
+		return "redirect:/cadastraCliente";
 	}
 
 	@RequestMapping(value = "/visualizaCliente/{id}", method = RequestMethod.GET)
