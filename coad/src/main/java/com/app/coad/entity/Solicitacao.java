@@ -122,12 +122,12 @@ public class Solicitacao implements Serializable {
 	}
 
 	public static String dataFormat(Date data) {
-		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
 		return dateFormat.format(data);
 	}
 	
 	public String dataBaixa() {
-		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
 		Date data = new Date();
 		return dateFormat.format(data);
 	}
@@ -138,7 +138,7 @@ public class Solicitacao implements Serializable {
 		cal.setTime(data); 
 		cal.add(Calendar.DATE, -2);
 		data = cal.getTime();
-		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
 		return dateFormat.format(data);
 	}
 }
