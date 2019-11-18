@@ -188,9 +188,7 @@
 											<td class="align-middle"><span
 												th:text="${solicitacao.cliente.nome}"></span></td>
 											<td class="align-middle"><span
-												th:text="${solicitacao.tipoSolicitacao.descricao}"></span><span
-												th:unless="${solicitacao.tipoSolicitacao.id != 4}"><span
-													th:text="${solicitacao.tipoOutros}"></span></span></td>
+												th:text="${solicitacao.tipoSolicitacao.descricao}"></span></td>
 											<td class="align-middle"><span
 												th:if="${solicitacao.status == 1}">Atendida</span><span
 												th:unless="${solicitacao.status == 1}">Aguardando</span></td>
