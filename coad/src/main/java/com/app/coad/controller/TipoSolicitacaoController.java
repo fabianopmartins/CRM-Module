@@ -48,10 +48,4 @@ public class TipoSolicitacaoController {
 		tss.save(tipoSolicitacao);
 		return listaTipoSolicitacao();
 	}
-
-	@RequestMapping(value = "/formSalvaTipoSolicitacao", method = RequestMethod.POST)
-	public ModelAndView formSalvaTipoSolicitacao(TipoSolicitacao tipoSolicitacao) {
-		tss.save(tipoSolicitacao);
-		return formCadastraTipoSolicitacao();
-	}
 }
