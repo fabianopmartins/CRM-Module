@@ -121,11 +121,6 @@ public class Solicitacao implements Serializable {
 		return serialVersionUID;
 	}
 
-	public static String dataFormat(Date data) {
-		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
-		return dateFormat.format(data);
-	}
-	
 	public String dataBaixa() {
 		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
 		Date data = new Date();

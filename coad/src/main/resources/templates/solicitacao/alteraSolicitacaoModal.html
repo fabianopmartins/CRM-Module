@@ -14,10 +14,8 @@
 						Solicitação</span>
 				</h4>
 			</div>
-
 			<form th:action="@{/alteraSolicitacao}" method="post"
 				th:object="${solicitacao}" id="altera-solicitacao-form">
-				<!-- Input values -->
 				<div class="modal-body container col-md-8">
 					<div class="form-group">
 						<label>ID</label><input type="text" th:field="*{id}" name="id"
@@ -69,13 +67,10 @@
 						</div>
 					</div>
 				</div>
-
-				<!-- buttons -->
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
 					<button type="submit" class="btn btn-primary">Salvar</button>
 				</div>
-
 			</form>
 		</div>
 	</div>

@@ -13,11 +13,8 @@
 						Cliente</span>
 				</h4>
 			</div>
-
 			<form th:action="@{/alteraCliente}" method="post"
 				th:object="${cliente}" id="altera-cliente-form">
-
-				<!-- Input values -->
 				<div class="modal-body container col-md-8">
 					<div class="form-group">
 						<label>ID</label> <input type="text" th:field="*{id}"
@@ -49,13 +46,10 @@
 							class="form-control" placeholder="(xx) xxxxx - xxxx" />
 					</div>
 				</div>
-
-				<!-- buttons -->
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
 					<button type="submit" class="btn btn-primary">Salvar</button>
 				</div>
-				
 			</form>
 		</div>
 	</div>
