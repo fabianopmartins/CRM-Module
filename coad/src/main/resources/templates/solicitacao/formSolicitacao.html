@@ -34,6 +34,13 @@ label {
 	font-weight: bold;
 	color: gray;
 }
+
+.form-control {
+	border: 1px solid gray;
+	border-top: none;
+	border-right: none;
+	border-left: none;
+}
 </style>
 <script type="text/javascript">
 	function abreFormTipoSolicitacaoModal() {
@@ -135,7 +142,7 @@ label {
 					<!-- Page Heading -->
 					<div
 						class="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 class="h3 mb-0 text-gray-800">Cadastrar Solicitação</h1>
+<!-- 						<h1 class="h3 mb-0 text-gray-800">Cadastrar Solicitação</h1> -->
 						<a href="#"
 							th:onclick="'javascript:abreFormTipoSolicitacaoModal();'"
 							class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
@@ -147,6 +154,7 @@ label {
 						<div class="card-body col-md-6"
 							style='margin-left: auto; margin-right: auto;'>
 							<div class="card shadow mb-4 text-center">
+							<h1 class="card-title" style="color: black; margin-top: 2%; font-weight: bold;">Cadastrar Solicitação</h1>
 								<div class="container">
 									<form class="form-group" method="post"
 										th:object="${solicitacao}"
@@ -161,49 +169,46 @@ label {
 											<div class="col">
 												<div class="form-row">
 													<div id="1" class="form-group col-md-4 mt-3 ml-5">
-														<label>Cliente</label> <select th:field="*{cliente}"
-															name="cliente" class="form-control" onfocus="limparMensagem()" >
-															<option value="">Selecione</option>
+														<select th:field="*{cliente}" name="cliente"
+															class="form-control" onfocus="limparMensagem()">
+															<option value="">Cliente</option>
 															<option th:each="cliente : ${clientes}"
 																th:value="${cliente.id}" th:text="${cliente.nome}"></option>
 														</select>
 													</div>
 													<div class="form-group col-md-4 mt-3 ml-5">
-														<label>Tipo de Solicitação</label> <select
-															th:field="*{tipoSolicitacao}" id="tipoSolicitacao"
+														<select th:field="*{tipoSolicitacao}" id="tipoSolicitacao"
 															name="tipoSolicitacao" class="form-control">
-															<option value="">Selecione</option>
+															<option value="">Tipo solicitação</option>
 															<option th:each="tipo : ${tipos}" th:value="${tipo.id}"
 																th:text="${tipo.descricao}"></option>
 														</select>
 													</div>
 												</div>
-												<hr>
 												<div class="form-row">
 													<div class="form-group col-md-9 mt-3 ml-5">
-														<label for="inputTitulo">Título</label><input
-															class="form-control" id="inputTitulo"
-															placeholder="Digite um título" type="text" value=""
-															th:field="*{titulo}" required="required" />
+														<input class="form-control" id="inputTitulo" type="text"
+															value="" th:field="*{titulo}" required="required"
+															placeholder="Digite um título" />
 													</div>
 													<div style="display: none" class="form-group col-md-5 mt-3">
-														<label>Data da Solicitação</label><input type="hidden"
+														<input type="hidden"
 															th:value="*{#dates.format(#dates.createNow(), 'yyyy-MM-dd')}"
 															name="data" class="form-control" required="required" />
 													</div>
 												</div>
-												<hr>
 												<div class="form-row">
 													<div class="form-group col-md-12 mt-3">
-														<label>Descrição</label>
+
 														<textarea th:field="*{descricao}" name="descricao"
 															class="form-control" required="required" rows="7"
-															cols="6" style="resize: none;"></textarea>
+															cols="6" style="resize: none; border: 1px solid gray;"
+															placeholder="Digite uma descrição"></textarea>
 													</div>
 												</div>
 												<div style="display: none" class="form-group col-md-6">
-													<label>Status</label> <select th:field="*{status}"
-														name="status" class="form-control">
+													<select th:field="*{status}" name="status"
+														class="form-control">
 														<option value="2"></option>
 													</select>
 												</div>

@@ -32,11 +32,18 @@ label {
 	font-weight: bold;
 	text-color: gray;
 }
+
+.form-control {
+	border: 1px solid gray;
+	border-top: none;
+	border-right: none;
+	border-left: none;
+}
 </style>
 <script type="text/javascript">
-	function limparMensagem() {
-		document.getElementById("success").style.display = 'none';
-	}
+	$(document).ready(function() {
+		
+	});
 </script>
 </head>
 <body id="page-top">
@@ -118,21 +125,20 @@ label {
 				<!-- Begin Page Content -->
 				<div class="container">
 
-					<div
-						class="d-sm-flex align-items-center justify-content-between mb-4"
-						style='margin-left: auto; margin-right: auto;'>
-						<h1 class="h3 mb-0 text-gray-800">Cadastrar Cliente</h1>
-					</div>
-
 					<div class="row">
 
-						<div class="card-body col-md-9"
-							style='margin-left: auto; margin-right: auto;'>
+						<div class="card-body col-md-8"
+							style="margin-left: auto; margin-right: auto; margin-top: 3%;">
 							<div class="card shadow mb-4 text-center">
+								<h1 class="card-title"
+									style="color: black; margin-top: 1%; font-weight: bold;">Cadastrar
+									Cliente</h1>
 								<div class="container">
 									<form class="form-group" method="post" th:object="${cliente}"
 										th:action="@{/formSalvaCliente}">
-										<div id="success" class="mdl-list__item mt-2 alert alert-success" th:if="${msg_resultado}">
+										<div id="success"
+											class="mdl-list__item mt-2 alert alert-success"
+											th:if="${msg_resultado}">
 											<p id="p-mensagem-sucesso" class="sucesso-msg"
 												th:text="${msg_resultado}">...</p>
 										</div>
@@ -140,37 +146,31 @@ label {
 											<div class="col">
 												<div class="form-row">
 													<div class="form-group col-md-6 mt-3">
-														<label for="inputNome">Nome</label><input
-															class="form-control" id="inputNome"
+														<input class="form-control" id="inputNome"
 															placeholder="Digite seu nome" type="text" value=""
-															th:field="*{nome}" required="required" onfocus="limparMensagem()" />
+															th:field="*{nome}" required="required" />
 													</div>
 													<div class="form-group col-md-6 mt-3">
-														<label for="inputSobrenome">E-mail</label><input
-															class="form-control" id="inputSobrenome"
+														<input class="form-control" id="inputSobrenome"
 															placeholder="Digite seu e-mail" type="text" value=""
 															th:field="*{email}" required="required" />
 													</div>
 												</div>
-												<hr>
 												<div class="form-row">
-													<div class="form-group col-md-3 mt-3 ml-5">
-														<label for="inputTelefone">Telefone Residencial</label> <input
-															class="form-control" id="inputTelefone"
-															placeholder="(xx) xxxx-xxxx" type="text" value=""
+													<div class="form-group col-md-4 mt-3">
+														<input class="form-control" id="inputTelefone"
+															placeholder="Telefone Residencial" type="text" value=""
 															th:field="*{foneResidencial}" required="required"
 															maxlength="11">
 													</div>
-													<div class="form-group col-md-3 mt-3 ml-5">
-														<label for="inputTelefone">Telefone Comercial</label> <input
-															class="form-control" id="inputTelefone"
-															placeholder="(xx) xxxx-xxxx" type="text" value=""
+													<div class="form-group col-md-4 mt-3">
+														<input class="form-control" id="inputTelefone"
+															placeholder="Telefone comercial" type="text" value=""
 															th:field="*{foneComercial}" maxlength="11">
 													</div>
-													<div class="form-group col-md-3 mt-3 ml-5">
-														<label for="inputTelefone">Telefone Celular</label> <input
-															class="form-control" id="inputTelefone"
-															placeholder="(xx) xxxxx-xxxx" type="text" value=""
+													<div class="form-group col-md-4 mt-3">
+														<input class="form-control" id="inputTelefone"
+															placeholder="Telefone celular" type="text" value=""
 															th:field="*{foneCelular}" maxlength="11">
 													</div>
 												</div>
@@ -178,8 +178,6 @@ label {
 										</div>
 										<div class="form-row">
 											<div class="form-group col-md-12">
-												<div hidden="true" id="sucess" class="alert alert-success"
-													role="alert">Cadastro salvo com sucesso!</div>
 												<button type="submit"
 													class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
 													id="salvar">Salvar</button>
@@ -221,5 +219,9 @@ label {
 
 	<!-- Custom scripts for all pages-->
 	<script src="js/sb-admin-2.min.js"></script>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+		crossorigin="anonymous"></script>
 </body>
 </html>
