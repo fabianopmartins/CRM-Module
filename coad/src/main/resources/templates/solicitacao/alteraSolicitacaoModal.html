@@ -29,22 +29,17 @@ label {
 			<form th:action="@{/alteraSolicitacao}" method="post"
 				th:object="${solicitacao}" id="altera-solicitacao-form">
 				<div class="modal-body container col-md-8">
-					<div class="form-group">
-						<label>ID</label><input type="text" th:field="*{id}" name="id"
-							class="form-control col-sm-3" readonly="readonly"
-							required="required" />
-					</div>
-					<div class="form-group">
-						<label>Título</label><input type="text" th:field="*{titulo}"
-							name="titulo" class="form-control" required="required"
-							placeholder="Digite um título" />
-					</div>
-					<div class="form-group">
-						<label>Descrição</label>
-						<textarea th:field="*{descricao}" name="descricao"
-							class="form-control" required="required" rows="3"
-							style="resize: none; border: 1px solid gray;"
-							placeholder="Digite uma descrição"></textarea>
+					<div class="form-row">
+						<div class="form-group col-md-3">
+							<label>ID</label><input type="text" th:field="*{id}" name="id"
+								class="form-control" readonly="readonly"
+								required="required" style="border: none;"/>
+						</div>
+						<div class="form-group col-md-8 ml-4">
+							<label>Data da Solicitação</label><input type="date"
+								th:value="*{data}" name="data" class="form-control"
+								required="required" />
+						</div>
 					</div>
 					<div class="form-group">
 						<label>Cliente</label> <select th:field="*{cliente}"
@@ -73,12 +68,17 @@ label {
 							</select>
 						</div>
 					</div>
-					<div class="form-row">
-						<div class="form-group col-md-8 ml-5">
-							<label>Data da Solicitação</label><input type="date"
-								th:value="*{data}" name="data" class="form-control"
-								required="required" />
-						</div>
+					<div class="form-group">
+						<label>Título</label><input type="text" th:field="*{titulo}"
+							name="titulo" class="form-control" required="required"
+							placeholder="Digite um título" />
+					</div>
+					<div class="form-group">
+						<label>Descrição</label>
+						<textarea th:field="*{descricao}" name="descricao"
+							class="form-control" required="required" rows="3"
+							style="resize: none; border-radius:.35rem; border: 1px solid gray;"
+							placeholder="Digite uma descrição"></textarea>
 					</div>
 				</div>
 				<div class="modal-footer">

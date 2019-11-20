@@ -2,19 +2,11 @@
 <html xmlns:th="http://thymeleaf.org">
 <head>
 <meta charset="utf-8">
-<style type="text/css">
-label {
-	font-weight: bold;
-	text-color: gray;
-}
+<link rel="stylesheet" href="/css/style.css">
+<!-- Custom styles for this template-->
+<link href="/css/sb-admin-2.min.css" rel="stylesheet">
+<link href="/css/style1.css" rel="stylesheet">
 
-.form-control {
-	border: 1px solid gray;
-	border-top: none;
-	border-right: none;
-	border-left: none;
-}
-</style>
 </head>
 <div id="alteraClienteModal" class="modal fade" role="dialog"
 	th:fragment="alteraCliente" tabindex="-1">
@@ -31,31 +23,31 @@ label {
 				<div class="modal-body container col-md-8">
 					<div class="form-group">
 						<label>ID</label> <input type="text" th:field="*{id}" name="id"
-							class="form-control col-sm-3" readonly="readonly"
-							required="required" />
+							class="form-control col-md-3" readonly="readonly"
+							required="required" style="border: none;" />
 					</div>
-					<div class="form-group">
+					<div class="form-group mt-3">
 						<label>Nome</label> <input type="text" th:field="*{nome}"
 							name="nome" class="form-control" required="required"
 							placeholder="Digite seu nome" />
 					</div>
-					<div class="form-group">
+					<div class="form-group mt-3">
 						<label>E-mail</label> <input type="email" th:field="*{email}"
 							name="email" class="form-control" required="required"
 							placeholder="Digite seu e-mail" />
 					</div>
-					<div class="form-group">
+					<div class="form-group mt-3">
 						<label>Telefone Residencial</label> <input type="text"
 							th:field="*{foneResidencial}" name="foneResidencial"
 							class="form-control" required="required"
 							placeholder="Telefone residencial" />
 					</div>
-					<div class="form-group">
+					<div class="form-group mt-3">
 						<label>Telefone Comercial</label> <input type="text"
 							th:field="*{foneComercial}" name="foneComercial"
 							class="form-control" placeholder="Telefone comercial" />
 					</div>
-					<div class="form-group">
+					<div class="form-group mt-3">
 						<label>Telefone Celular</label> <input type="text"
 							th:field="*{foneCelular}" name="foneCelular" class="form-control"
 							placeholder="Telefone celular" />

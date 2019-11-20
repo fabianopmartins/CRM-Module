@@ -127,6 +127,8 @@
 }
 
 #inputSolicitacaoDescricao {
+	border-radius:.35rem;
+	border: 1px solid gray;
 	padding-left: 30px;
 }
 
@@ -150,15 +152,6 @@
 label {
 	font-weight: bold;
 	text-color: gray;
-}
-
-#inputSolicitacaoDescricao {
-	border: 1px solid gray;
-}
-
-#inputProdutoDescricao {
-	border: none;
-	border-bottom: 1px solid gray;
 }
 
 .form-group {

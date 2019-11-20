@@ -121,7 +121,18 @@ public class Solicitacao implements Serializable {
 		Date data = new Date();
 		Calendar cal = Calendar.getInstance(); 
 		cal.setTime(data); 
-		cal.add(Calendar.DATE, -2);
+		cal.add(Calendar.DAY_OF_YEAR, -2);
+		data = cal.getTime();
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
+		return dateFormat.format(data);
+	}
+	
+	
+	public String dataAltaMes() {
+		Date data = new Date();
+		Calendar cal = Calendar.getInstance(); 
+		cal.setTime(data); 
+		cal.add(Calendar.DATE, -1);
 		data = cal.getTime();
 		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
 		return dateFormat.format(data);

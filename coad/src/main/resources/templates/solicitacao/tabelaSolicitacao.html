@@ -195,7 +195,7 @@
 											<td class="align-middle"><span
 												th:if="${#dates.format(solicitacao.data, 'dd/MM/yy').equals(solicitacao.dataBaixa())}"
 												style='color: LimeGreen;'>Baixa</span> <span
-												th:if="${#dates.format(solicitacao.data, 'dd/MM/yy') < solicitacao.dataBaixa() && #dates.format(solicitacao.data, 'dd/MM/yy') >= solicitacao.dataAlta()}"
+												th:if="${#dates.format(solicitacao.data, 'dd/MM/yy') < solicitacao.dataBaixa() && #dates.format(solicitacao.data, 'dd/MM/yy') >= solicitacao.dataAlta() }"
 												style='color: orange;'>Média</span> <span
 												th:if="${#dates.format(solicitacao.data, 'dd/MM/yy') < solicitacao.dataAlta()}"
 												style='color: red;'>Alta</span></td>
