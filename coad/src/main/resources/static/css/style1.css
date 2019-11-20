@@ -1,0 +1,172 @@
+#inputClienteNome {
+	padding-left: 30px;
+}
+
+#inputClienteNome-label {
+	position: relative;
+}
+
+#inputClienteNome-label:before {
+	content: "\f007";
+	font-family: FontAwesome;
+	position: absolute;
+	top: 5px;
+	left: 10px;
+}
+
+#inputClienteEmail {
+	padding-left: 30px;
+}
+
+#inputClienteEmail-label {
+	position: relative;
+}
+
+#inputClienteEmail-label:before {
+	content: "\f0e0";
+	font-family: FontAwesome;
+	position: absolute;
+	top: 5px;
+	left: 10px;
+}
+
+#inputClienteTelefoneResidencial {
+	padding-left: 30px;
+}
+
+#inputClienteTelefoneResidencial-label {
+	position: relative;
+}
+
+#inputClienteTelefoneResidencial-label:before {
+	content: "\f095";
+	font-family: FontAwesome;
+	position: absolute;
+	top: 5px;
+	left: 10px;
+}
+
+#inputClienteTelefoneComercial {
+	padding-left: 30px;
+}
+
+#inputClienteTelefoneComercial-label {
+	position: relative;
+}
+
+#inputClienteTelefoneComercial-label:before {
+	content: "\f095";
+	font-family: FontAwesome;
+	position: absolute;
+	top: 5px;
+	left: 10px;
+}
+
+#inputClienteTelefoneCelular {
+	padding-left: 30px;
+}
+
+#inputClienteTelefoneCelular-label {
+	position: relative;
+}
+
+#inputClienteTelefoneCelular-label:before {
+	content: "\f095";
+	font-family: FontAwesome;
+	position: absolute;
+	top: 5px;
+	left: 10px;
+}
+
+#inputSolicitacaoCliente {
+	padding-left: 30px;
+}
+
+#inputSolicitacaoCliente-label {
+	position: relative;
+}
+
+#inputSolicitacaoCliente-label:before {
+	content: "\f007";
+	font-family: FontAwesome;
+	position: absolute;
+	top: 5px;
+	left: 10px;
+}
+
+#inputSolicitacaoTipo {
+	padding-left: 30px;
+}
+
+#inputSolicitacaoTipo-label {
+	position: relative;
+}
+
+#inputSolicitacaoTipo-label:before {
+	content: "\f1c0";
+	font-family: FontAwesome;
+	position: absolute;
+	top: 5px;
+	left: 10px;
+}
+
+#inputSolicitacaoTitulo {
+	padding-left: 30px;
+}
+
+#inputSolicitacaoTitulo-label {
+	position: relative;
+}
+
+#inputSolicitacaoTitulo-label:before {
+	content: "\f03a";
+	font-family: FontAwesome;
+	position: absolute;
+	top: 5px;
+	left: 10px;
+}
+
+#inputSolicitacaoDescricao {
+	padding-left: 30px;
+}
+
+#inputSolicitacaoDescricao-label {
+	position: relative;
+}
+
+#inputSolicitacaoDescricao-label:before {
+	content: "\f022";
+	font-family: FontAwesome;
+	position: absolute;
+	top: 5px;
+	left: 10px;
+}
+
+.form-control {
+	border: none;
+	border-bottom: 1px solid gray;
+}
+
+label {
+	font-weight: bold;
+	text-color: gray;
+}
+
+#inputSolicitacaoDescricao {
+	border: 1px solid gray;
+}
+
+#inputProdutoDescricao {
+	border: none;
+	border-bottom: 1px solid gray;
+}
+
+.form-group {
+	margin: 0 auto;
+}
+
+</
+style> <script type ="text/javascript">function limparMensagem () {document
+	.getElementById("success").style.display = 'none';
+	
+}

@@ -26,20 +26,9 @@
 <!-- Custom styles for this page -->
 <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
 	rel="stylesheet">
-
-<style type="text/css">
-label {
-	font-weight: bold;
-	text-color: gray;
-}
-
-.form-control {
-	border: 1px solid gray;
-	border-top: none;
-	border-right: none;
-	border-left: none;
-}
-</style>
+<link href="/font-awesome-4.7.0/css/font-awesome.min.css"
+	rel="stylesheet">
+<link href="/css/style1.css" rel="stylesheet">
 <script type="text/javascript">
 	$(document).ready(function() {
 		
@@ -125,12 +114,13 @@ label {
 				<!-- Begin Page Content -->
 				<div class="container">
 
+					<!-- Content Row -->
 					<div class="row">
 
-						<div class="card-body col-md-8"
+						<div class="card-body mt-5 col-md-5"
 							style="margin-left: auto; margin-right: auto; margin-top: 3%;">
 							<div class="card shadow mb-4 text-center">
-								<h1 class="card-title"
+								<h1 class="card-title mt-3"
 									style="color: black; margin-top: 1%; font-weight: bold;">Cadastrar
 									Cliente</h1>
 								<div class="container">
@@ -145,39 +135,50 @@ label {
 										<div class="form-row">
 											<div class="col">
 												<div class="form-row">
-													<div class="form-group col-md-6 mt-3">
-														<input class="form-control" id="inputNome"
-															placeholder="Digite seu nome" type="text" value=""
-															th:field="*{nome}" required="required" />
-													</div>
-													<div class="form-group col-md-6 mt-3">
-														<input class="form-control" id="inputSobrenome"
-															placeholder="Digite seu e-mail" type="text" value=""
-															th:field="*{email}" required="required" />
+													<div class="form-group col-md-9">
+														<label id="inputClienteNome-label"><input
+															class="form-control" id="inputClienteNome"
+															placeholder="Nome" type="text" value=""
+															th:field="*{nome}" required="required" /></label>
 													</div>
 												</div>
 												<div class="form-row">
-													<div class="form-group col-md-4 mt-3">
-														<input class="form-control" id="inputTelefone"
+													<div class="form-group col-md-9 mt-3">
+														<label id="inputClienteEmail-label"><input
+															class="form-control" id="inputClienteEmail"
+															placeholder="E-mail" type="text" value=""
+															th:field="*{email}" required="required" /></label>
+													</div>
+												</div>
+												<div class="form-row">
+													<div class="form-group col-md-9 mt-3">
+														<label id="inputClienteTelefoneResidencial-label"><input
+															class="form-control" id="inputClienteTelefoneResidencial"
 															placeholder="Telefone Residencial" type="text" value=""
 															th:field="*{foneResidencial}" required="required"
-															maxlength="11">
+															maxlength="11"></label>
 													</div>
-													<div class="form-group col-md-4 mt-3">
-														<input class="form-control" id="inputTelefone"
+												</div>
+												<div class="form-row">
+													<div class="form-group col-md-9 mt-3">
+														<label id="inputClienteTelefoneComercial-label"><input
+															class="form-control" id="inputClienteTelefoneComercial"
 															placeholder="Telefone comercial" type="text" value=""
-															th:field="*{foneComercial}" maxlength="11">
+															th:field="*{foneComercial}" maxlength="11"></label>
 													</div>
-													<div class="form-group col-md-4 mt-3">
-														<input class="form-control" id="inputTelefone"
+												</div>
+												<div class="form-row">
+													<div class="form-group col-md-9 mt-3">
+														<label id="inputClienteTelefoneCelular-label"><input
+															class="form-control" id="inputClienteTelefoneCelular"
 															placeholder="Telefone celular" type="text" value=""
-															th:field="*{foneCelular}" maxlength="11">
+															th:field="*{foneCelular}" maxlength="11"></label>
 													</div>
 												</div>
 											</div>
 										</div>
 										<div class="form-row">
-											<div class="form-group col-md-12">
+											<div class="form-group col-md-12 mt-3 mb-4">
 												<button type="submit"
 													class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
 													id="salvar">Salvar</button>
